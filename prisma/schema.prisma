@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model StudySpot {
+  id           Int      @id @default(autoincrement())
+  name         String
+  description  String?
+  icon         String   @default("📚")
+  latitude     Float
+  longitude    Float
+  distance     String?
+  rating       Float    @default(0)
+  wifi         Boolean  @default(false)
+  powerOutlets Boolean  @default(false)
+  quiet        Boolean  @default(false)
+  seating      String?
+  crowdLevel   String?
+  openingHours String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
